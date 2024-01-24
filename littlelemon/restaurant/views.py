@@ -35,8 +35,8 @@ class MenuItemsView(generics.ListCreateAPIView):
 
     def get_permissions(self):
         permission_classes = []
-        # if self.request.method != 'GET':
-            # permission_classes = [IsAuthenticated]
+        if self.request.method != 'GET':
+            permission_classes = [IsAuthenticated]
 
         return [permission() for permission in permission_classes]
     
@@ -47,8 +47,8 @@ class SingleMenuItemView(generics.RetrieveUpdateAPIView, generics.DestroyAPIView
 
     def get_permissions(self):
         permission_classes = []
-        # if self.request.method != 'GET':
-        #     permission_classes = [IsAuthenticated]
+        if self.request.method != 'GET':
+            permission_classes = [IsAuthenticated]
 
         return [permission() for permission in permission_classes]
 
@@ -56,7 +56,7 @@ class BookingViewSet(viewsets.ModelViewSet):
     queryset = Booking.objects.all()
     serializer_class = BookingSerializer
 
-    # permission_classes = [permissions.IsAuthenticated] 
+    permission_classes = [IsAuthenticated] 
 
 
 
