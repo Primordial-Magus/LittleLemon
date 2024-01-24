@@ -7,8 +7,8 @@
 from django.shortcuts import render
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
-from .models import Menu
-from .serializers import MenuItemSerializer
+from .models import Menu, Booking
+from .serializers import MenuItemSerializer, BookingSerializer
 from rest_framework.response import Response
 
 from rest_framework.permissions import IsAdminUser
@@ -51,4 +51,13 @@ class SingleMenuItemView(generics.RetrieveUpdateAPIView, generics.DestroyAPIView
         #     permission_classes = [IsAuthenticated]
 
         return [permission() for permission in permission_classes]
+
+class BookingViewSet(viewsets.ModelViewSet):
+    queryset = Booking.objects.all()
+    serializer_class = BookingSerializer
+
+    # permission_classes = [permissions.IsAuthenticated] 
+
+
+
 

@@ -7,7 +7,8 @@ class BookingSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Booking
-        fields = ['ID', 'Name', 'No_of_guests', 'BookingDate']
+        # fields = ['ID', 'Name', 'No_of_guests', 'BookingDate']
+        fields = "__all__"
 
 class MenuItemSerializer(serializers.ModelSerializer):
     # category = serializers.PrimaryKeyRelatedField(
