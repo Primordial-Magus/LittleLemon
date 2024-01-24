@@ -7,7 +7,7 @@ from decimal import Decimal
 class Booking(models.Model):
     ID = models.PositiveIntegerField(
         primary_key = True,
-        unique = True
+        unique = True,
     )
     Name = models.CharField(max_length=255)
     No_of_guests = models.IntegerField(
@@ -23,7 +23,7 @@ class Booking(models.Model):
 class Menu(models.Model):
     ID = models.PositiveIntegerField(
         primary_key = True,
-        unique = True
+        unique = True,
     )
     Title = models.CharField(max_length=255)
     Price = models.DecimalField(max_digits=10, decimal_places=2, validators=
